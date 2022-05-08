@@ -163,7 +163,6 @@ export default {
 
 .abutton {
   position: fixed; /* Sit on top of the page content */
-  background-color: transparent;
   width: 10%;
   top: 10%;
   left: 10%;
@@ -192,7 +191,6 @@ export default {
 }
 .bbutton {
   position: fixed; /* Sit on top of the page content */
-  background-color: transparent;
   background-repeat: no-repeat;
   border: none;
   top: 10%;
@@ -220,7 +218,6 @@ export default {
   position: fixed; /* Sit on top of the page content */
   top: 10%;
   left: 30%;
-  background-color: transparent;
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
