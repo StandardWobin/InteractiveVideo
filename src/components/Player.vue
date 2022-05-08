@@ -57,7 +57,6 @@ export default {
     };
   },
   mounted() {
-    console.log("this is current player instance object", this.player);
     this.actual_plan = this.plan,
     this.player.src({type: this.actual_plan._mime, src:  this.actual_plan._src});
     this.player.loop(false);
@@ -106,11 +105,11 @@ export default {
       this.player.play();
     },
     // listen event
-    onPlayerPlay(player) {
-      console.log("player play!", player);
+    onPlayerPlay() {
+      console.log();
     },
-    onPlayerPause(player) {
-      console.log("player pause!", player);
+    onPlayerPause() {
+      console.log();
     },
     // ...player event
 
@@ -119,33 +118,31 @@ export default {
       console.log("player current update state", playerCurrentState);
     },
 
-    onPlayerLoadeddata(event) {
-      console.log(event);
+    onPlayerLoadeddata() {
+      console.log();
     },
-    onPlayerPlaying(event) {
-      console.log(event);
+    onPlayerPlaying() {
+      console.log();
     },
 
-    onPlayerCanplay(event) {
-      console.log(event);
+    onPlayerCanplay() {
+      console.log();
     },
-    onPlayerTimeupdate(event) {
-      console.log("player current update state", event);
-      console.log(this.getTime()*100);
-      console.log(this.actual_plan._trigger);
+    onPlayerTimeupdate() {
+      // console.log("player current update state", event);
       if(this.getTime()*100 >= this.plan._trigger) {
-        console.log("show butoons");
         this.showbutton = true;
+      } else {
+        this.showbutton = false;
       }
     },
 
-    onPlayerCanplaythrough(event) {
-      console.log(event);
+    onPlayerCanplaythrough() {
+      console.log();
     },
 
     // player is ready
-    playerReadied(player) {
-      console.log("the player is readied", player);
+    playerReadied() {
       // you can use it to do something...
       // player.[methods]
     },
