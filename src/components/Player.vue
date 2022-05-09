@@ -20,13 +20,30 @@
         @ready="playerReadied"
       >
       </video-player>
-    <button v-if="showbutton && (actual_plan.a !== undefined)" class="abutton" @click="changevideo('a')">+</button>
-    <button v-if="showbutton && (actual_plan.b !== undefined)" class="bbutton" @click="changevideo('b')">+</button>
-    <button v-if="showbutton && (actual_plan.c !== undefined)" class="cbutton" @click="changevideo('c')">+</button>
+      <button
+        v-if="showbutton && actual_plan.a !== undefined"
+        class="abutton"
+        @click="changevideo('a')"
+      >
+        +
+      </button>
+      <button
+        v-if="showbutton && actual_plan.b !== undefined"
+        class="bbutton"
+        @click="changevideo('b')"
+      >
+        +
+      </button>
+      <button
+        v-if="showbutton && actual_plan.c !== undefined"
+        class="cbutton"
+        @click="changevideo('c')"
+      >
+        +
+      </button>
     </div>
     <button @click="play()">play</button>
     <button @click="pause()">pause</button>
-
   </div>
 </template>
 
@@ -37,11 +54,11 @@ export default {
   name: "Player",
   props: {
     videoPlayer,
-    plan : Object,
+    plan: Object,
   },
   data() {
     return {
-      actual_plan : {},
+      actual_plan: {},
       showbutton: false,
 
       playerOptions: {
@@ -51,14 +68,17 @@ export default {
         fluid: true,
 
         // playbackRates: [0.7, 1.0, 1.5, 2.0],
-     
+
         poster: "images/intro.png",
       },
     };
   },
   mounted() {
-    this.actual_plan = this.plan,
-    this.player.src({type: this.actual_plan._mime, src:  this.actual_plan._src});
+    (this.actual_plan = this.plan),
+      this.player.src({
+        type: this.actual_plan._mime,
+        src: this.actual_plan._src,
+      });
     this.player.loop(false);
   },
   computed: {
@@ -68,10 +88,10 @@ export default {
   },
   methods: {
     getTime() {
-      return this.player.currentTime(); 
+      return this.player.currentTime();
     },
     paused() {
-      this.player.paused(); 
+      this.player.paused();
     },
 
     play() {
@@ -83,23 +103,37 @@ export default {
     },
 
     onPlayerEnded(event) {
+      // triggered after video finished, auto loads next video if it was defined
       console.log(event);
+      if (this.actual_plan._forceNext !== undefined) {
+        if (
+          this.actual_plan._forceNext == "a" ||
+          this.actual_plan._forceNext == "b" ||
+          this.actual_plan._forceNext == "c"
+        ) {
+          this.changevideo(this.actual_plan._forceNext);
+        }
+      }
     },
     onPlayerWaiting(event) {
       console.log(event);
     },
-    changevideo(option) {
 
-      if(option === "a") {
+    changevideo(option) {
+      // changes the player to a deeper level
+      if (option === "a") {
         this.actual_plan = this.actual_plan.a;
-      } else if(option === "b") {
+      } else if (option === "b") {
         this.actual_plan = this.actual_plan.b;
-      } else if(option === "c") {
+      } else if (option === "c") {
         this.actual_plan = this.actual_plan.c;
       }
       console.log("change video to " + this.actual_plan._src);
       this.player.pause();
-      this.player.src({type: this.actual_plan._mime, src: this.actual_plan._src});
+      this.player.src({
+        type: this.actual_plan._mime,
+        src: this.actual_plan._src,
+      });
       this.player.load();
       this.showbutton = false;
       this.player.play();
@@ -130,7 +164,7 @@ export default {
     },
     onPlayerTimeupdate() {
       // console.log("player current update state", event);
-      if(this.getTime()*100 >= this.plan._trigger) {
+      if (this.getTime() * 100 >= this.plan._trigger) {
         this.showbutton = true;
       } else {
         this.showbutton = false;
@@ -138,7 +172,7 @@ export default {
     },
 
     onPlayerCanplaythrough() {
-      console.log();
+      console.log("play run finished");
     },
 
     // player is ready
@@ -154,8 +188,7 @@ export default {
 <style scoped>
 .playerbox {
   width: 100%;
-    height: 100%;
-
+  height: 100%;
 }
 
 .abutton {
