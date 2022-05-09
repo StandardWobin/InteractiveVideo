@@ -7,7 +7,7 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm run dev
 ```
 
 ### Compiles and minifies for production
@@ -15,10 +15,8 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+runs under var/www/html/demo on BFT backend
+do not forget to restart nginx
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+see App.vue to enter new data
