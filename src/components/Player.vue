@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="playerbox">
       <video-player
         class="video-player-box"
@@ -25,25 +24,22 @@
         class="abutton"
         @click="changevideo('a')"
       >
-        +
+        
       </button>
       <button
         v-if="showbutton && actual_plan.b !== undefined"
         class="bbutton"
         @click="changevideo('b')"
       >
-        +
+        
       </button>
       <button
         v-if="showbutton && actual_plan.c !== undefined"
         class="cbutton"
         @click="changevideo('c')"
       >
-        +
+        
       </button>
-    </div>
-    <button @click="play()">play</button>
-    <button @click="pause()">pause</button>
   </div>
 </template>
 
@@ -59,7 +55,7 @@ export default {
   data() {
     return {
       actual_plan: {},
-      showbutton: false,
+      showbutton: true,
 
       playerOptions: {
         // videojs options
@@ -189,88 +185,109 @@ export default {
 .playerbox {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
-.abutton {
-  position: fixed; /* Sit on top of the page content */
-  width: 10%;
-  top: 10%;
-  left: 10%;
-  height: 10%;
+.playerbox > .abutton {
+  position: absolute; /* Sit on top of the page content */
   background-repeat: no-repeat;
   border: none;
+  top: 38%;
+  left: 25%;
   cursor: pointer;
   overflow: hidden;
   outline: none;
-  color: green;
+  width: 15%;
+  height: 20%;
+  z-index: 9999;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0);
 }
 
-.abutton:hover {
-  position: fixed; /* Sit on top of the page content */
-  background-color: red;
+
+.playerbox > .bbutton {
+  position: absolute; /* Sit on top of the page content */
   background-repeat: no-repeat;
-  width: 10%;
-  height: 10%;
-  top: 10%;
-  left: 10%;
-  color: green;
   border: none;
+  top: 38%;
+  left: 45%;
   cursor: pointer;
   overflow: hidden;
   outline: none;
-}
-.bbutton {
-  position: fixed; /* Sit on top of the page content */
-  background-repeat: no-repeat;
-  border: none;
-  top: 10%;
-  left: 20%;
-  cursor: pointer;
-  overflow: hidden;
-  outline: none;
-  width: 10%;
-  height: 10%;
-  color: green;
+  width: 15%;
+  height: 20%;
+  z-index: 9999;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0);
 }
 
-.bbutton:hover {
-  position: fixed; /* Sit on top of the page content */
-  background-color: red;
-  top: 10%;
-  left: 20%;
+.playerbox > .cbutton {
+  position: absolute; /* Sit on top of the page content */
   background-repeat: no-repeat;
   border: none;
+  top: 38%;
+  left: 65%;
   cursor: pointer;
   overflow: hidden;
   outline: none;
-}
-.cbutton {
-  position: fixed; /* Sit on top of the page content */
-  top: 10%;
-  left: 30%;
-  background-repeat: no-repeat;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  outline: none;
-  width: 10%;
-  height: 10%;
-  color: green;
+  width: 15%;
+  height: 20%;
+  z-index: 9999;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0);
 }
 
-.cbutton:hover {
-  position: fixed; /* Sit on top of the page content */
-  background-color: red;
-  background-repeat: no-repeat;
-  top: 10%;
-  left: 30%;
 
+
+.playerbox > .abutton:hover {
+  position: absolute; /* Sit on top of the page content */
+  background-repeat: no-repeat;
   border: none;
+  top: 38%;
+  left: 25%;
   cursor: pointer;
   overflow: hidden;
   outline: none;
-  width: 10%;
-  height: 10%;
-  color: green;
+  width: 15%;
+  height: 20%;
+  z-index: 9999;
+  border-radius: 12px;
+  background-color: rgba(128, 0, 0, 0.74);
 }
+
+
+.playerbox > .bbutton:hover {
+  position: absolute; /* Sit on top of the page content */
+  background-repeat: no-repeat;
+  border: none;
+  top: 38%;
+  left: 45%;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  width: 15%;
+  height: 20%;
+  z-index: 9999;
+  border-radius: 12px;
+  background-color: rgba(128, 0, 0, 0.74);
+}
+
+.playerbox > .cbutton:hover {
+  position: absolute; /* Sit on top of the page content */
+  background-repeat: no-repeat;
+  border: none;
+  top: 38%;
+  left: 65%;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  width: 15%;
+  height: 20%;
+  z-index: 9999;
+  border-radius: 12px;
+  background-color: rgba(128, 0, 0, 0.74);
+}
+
+
+
 </style>

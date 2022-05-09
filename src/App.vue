@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <Player :plan="plan"></Player>
+  <div style="width:100%; height:100%">
+    <Player style="width:100%; height:100%" :plan="plan"></Player>
   </div>
 </template>
 
