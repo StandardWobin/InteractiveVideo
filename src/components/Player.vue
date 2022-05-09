@@ -55,7 +55,7 @@ export default {
   data() {
     return {
       actual_plan: {},
-      showbutton: true,
+      showbutton: false,
 
       playerOptions: {
         // videojs options
