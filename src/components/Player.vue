@@ -40,6 +40,8 @@
       >
         
       </button>
+
+
   </div>
 </template>
 
@@ -75,7 +77,7 @@ export default {
         type: this.actual_plan._mime,
         src: this.actual_plan._src,
       });
-    this.player.loop(false);
+
   },
   computed: {
     player() {
@@ -133,6 +135,8 @@ export default {
       this.player.load();
       this.showbutton = false;
       this.player.play();
+
+
     },
     // listen event
     onPlayerPlay() {
