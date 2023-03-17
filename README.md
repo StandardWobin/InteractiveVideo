@@ -1,6 +1,6 @@
 # Vue.js Video Navigation Page with CSS Overlay
 
-This is a small Vue.js application for navigating through videos with a CSS overlay on top of the videos. The app allows you to load a list of videos and view them one by one while displaying information about the video in a styled overlay.
+This is a small Vue.js application for navigating through videos with a CSS overlay on top of the videos. The app allows you to load a list of videos and view them one by one while displaying a button on top of the video. This can be used for interactive video storytelling on webpages
 
 ## Features
 Navigate through the videos using buttons
