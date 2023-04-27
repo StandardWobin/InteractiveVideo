@@ -14,6 +14,3 @@ Navigate through the videos using buttons
 
 ## Screenshot
 ![Screenshot](/docs/screenshot.png)
-
-## Lizens
-MIT
